@@ -1,15 +1,27 @@
 const { invoke } = window.__TAURI__.tauri;
 
-let greetInputEl;
-let greetMsgEl;
+let searchInputEl;
+let searchMsgEl;
+let searchButtonEl;
 
 window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
+  searchInputEl = document.querySelector("#search-input");
+  searchMsgEl = document.querySelector("#search-msg");
+  searchButtonEl = document.querySelector("#search-button");
+  beginStartup();
 });
 
-async function greet() {
-  greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
+async function beginStartup() {
+  searchButtonEl.disabled = true;
+  await invoke("startup").then(() => {
+    searchInputEl.placeholder = "Search input"; 
+    searchButtonEl.disabled = false;
+  });
 }
 
-window.greet = greet;
+async function search() {
+  searchtMsgEl.textContent = await invoke("search", { term: searchInputEl.value });
+}
+
+window.beginStartup = beginStartup;
+window.search = search;

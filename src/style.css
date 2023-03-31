@@ -75,6 +75,11 @@ button:hover {
   border-color: #396cd8;
 }
 
+button:disabled,
+button[disabled]{
+  background-color: #ccc;
+}
+
 input,
 button {
   outline: none;
