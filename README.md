@@ -15,3 +15,14 @@ once you've downloaded the code, you can run:
 
 cargo tauri dev
 ```
+
+## What you will see
+
+A window will come up with a text box and a button.
+The button will be disabled and the text box `placeholder` suggests it is not ready yet.
+
+After 5 seconds, the window updates so that the button is enabled and the placeholder says `Search input` to suggest it is ready to run.
+
+You can enter your search value while the "data" is loading, or otherwise interact with the application.
+
+This was an experiment to teach myself how to load a large file without disrupting the user experience of starting to use the application.
